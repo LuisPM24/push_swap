@@ -36,5 +36,7 @@ int	ft_atoi(const char *nptr)
 		mem = (mem * 10) + ((int)nptr[cont] - '0');
 		cont++;
 	}
+	if (nptr[cont] != '\0')
+		return (0);
 	return (mem * sign);
 }

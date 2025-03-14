@@ -1,4 +1,4 @@
-NAME = libft.a
+NAME = libft/libft.a
 SRCS = 	ft_atoi.c \
 		ft_bzero.c \
 		ft_isalpha.c \
