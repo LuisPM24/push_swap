@@ -1,5 +1,20 @@
 #include "push_swap.h"
 
+static void	free_split(char **split_nums)
+{
+	int	count;
+
+	if (!split_nums)
+		return ;
+	count = 0;
+	while (split_nums[count])
+	{
+		free(split_nums[count]);
+		count++;
+	}
+	free(split_nums);
+}
+
 static int	count_str(char **str_stack)
 {
 	int	count;
@@ -17,7 +32,6 @@ static int	*str_insert_numbs(char **str_stack, int len)
 	int	*num_aux;
 	int	count;
 
-	count = 0;
 	num_aux = malloc(sizeof(int) * len);
 	if (!num_aux)
 	{
@@ -25,6 +39,7 @@ static int	*str_insert_numbs(char **str_stack, int len)
 		free_split(str_stack);
 		return (NULL);
 	}
+	count = 0;
 	while (count < len)
 	{
 		num_aux[count] = ft_atoi(str_stack[count]);
@@ -34,7 +49,7 @@ static int	*str_insert_numbs(char **str_stack, int len)
 	{
 		ft_printf("Error\n");
 		free(num_aux);
-		free_split(str_stack);
+		/* Se elimina la liberación de split_nums aquí para evitar doble free */
 		return (NULL);
 	}
 	return (num_aux);
@@ -45,14 +60,14 @@ static int	*int_insert_numbs(char **str_stack, int len)
 	int	*num_aux;
 	int	count;
 
-	count = 1;
 	num_aux = malloc(sizeof(int) * len);
 	if (!num_aux)
 	{
 		ft_printf("Error\n");
 		return (NULL);
 	}
-	while (count <= len)
+	count = 1;
+	while (count <= len)  // Se modifica la condición para incluir todos los argumentos
 	{
 		num_aux[count - 1] = ft_atoi(str_stack[count]);
 		count++;
@@ -64,21 +79,6 @@ static int	*int_insert_numbs(char **str_stack, int len)
 		return (NULL);
 	}
 	return (num_aux);
-}
-
-static void	free_split(char **split_nums)
-{
-	int	count;
-
-	if (!split_nums)
-		return ;
-	count = 0;
-	while (split_nums[count])
-	{
-		free(split_nums[count]);
-		count++;
-	}
-	free(split_nums);
 }
 
 int	main(int argc, char **argv)

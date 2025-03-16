@@ -11,7 +11,7 @@ int		validate_input(char **nums, int count);
 
 //Push Swap utils
 void	sort_selector(int *stack, int len);
-void	sort_two(int *stack, int len);
+void	sort_two(int *stack);
 void	sort_three(int *stack, int len);
 void	radix_sort(int *stack_a, int *stack_b, int len_a, int *len_b);
 

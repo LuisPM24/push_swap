@@ -1,17 +1,16 @@
 NAME = push_swap
-SRCS =	push_swap.c \
-		push_methods.c \
-		push_movements.c \
-		push_validations.c \
-		radix_sort.c \
-		a_functions.c \
-		b_functions.c
+SRCS = push_swap.c \
+       push_methods.c \
+       push_movements.c \
+       push_validations.c \
+       radix_sort.c \
+       a_functions.c \
+       b_functions.c
 
 OBJS = $(SRCS:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-
-LIBFT: libft/libft.a
+LIBFT = libft/libft.a
 
 all: $(LIBFT) $(NAME)
 
@@ -30,7 +29,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) -C libft/ clean
+	$(MAKE) -C libft/ fclean
 
 re: fclean all
 
