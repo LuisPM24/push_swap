@@ -6,7 +6,7 @@
 /*   By: scamlett <scamlett@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:26:51 by scamlett          #+#    #+#             */
-/*   Updated: 2026/05/04 15:34:01 by scamlett         ###   ########.fr       */
+/*   Updated: 2026/05/04 16:00:26 by scamlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 // The array is passed as a pointer + size,
 // since C doesn't know the length of the array at runtime.
 // The return type is double so the division doesn't truncate.
-double	compute_disorder(int *a, int size)
+int	compute_disorder(int *a, int size)
 {
 	int i;
 	int j;
@@ -36,5 +36,5 @@ double	compute_disorder(int *a, int size)
 		}
 		i++;
 	}
-	return ((double)mistakes / total_pairs);
+	return (mistakes / total_pairs);
 }
