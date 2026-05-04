@@ -6,20 +6,20 @@
 /*   By: scamlett <scamlett@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:26:51 by scamlett          #+#    #+#             */
-/*   Updated: 2026/05/04 16:00:26 by scamlett         ###   ########.fr       */
+/*   Updated: 2026/05/04 20:41:05 by scamlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Python code in subject has been translated to C.
 // The array is passed as a pointer + size,
 // since C doesn't know the length of the array at runtime.
-// The return type is double so the division doesn't truncate.
-int	compute_disorder(int *a, int size)
+// The return type is float so the division doesn't truncate.
+float	compute_disorder(int *a, int size)
 {
-	int i;
-	int j;
-	int mistakes;
-	int total_pairs;
+	int	i;
+	int	j;
+	int	mistakes;
+	int	total_pairs;
 
 	mistakes = 0;
 	total_pairs = 0;
@@ -36,5 +36,5 @@ int	compute_disorder(int *a, int size)
 		}
 		i++;
 	}
-	return (mistakes / total_pairs);
+	return ((float)mistakes / total_pairs);
 }

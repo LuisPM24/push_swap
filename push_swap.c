@@ -6,7 +6,8 @@
 /*   By: scamlett <scamlett@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:20:31 by scamlett          #+#    #+#             */
-/*   Updated: 2026/05/04 15:20:32 by scamlett         ###   ########.fr       */
+/*   Updated: 2026/05/04 20:22:13 by scamlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
