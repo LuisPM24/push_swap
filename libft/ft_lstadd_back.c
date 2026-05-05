@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reserve_rotate.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scamlett <scamlett@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/05 12:26:48 by scamlett          #+#    #+#             */
-/*   Updated: 2026/05/05 15:57:59 by scamlett         ###   ########.fr       */
+/*   Created: 2026/04/21 14:44:22 by scamlett          #+#    #+#             */
+/*   Updated: 2026/04/23 21:38:25 by scamlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	rra(t_node **a)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_node	*last;
+	t_list	*last;
 
-	if (!*a || !(*a)->next)
+	if (!lst || !new)
 		return ;
-	last = last_node(*a);
-	last->next = *a;
-	*a = last;
-	ft_printf("rra\n");
-}
-
-void	rrb(t_node **b)
-{
-	t_node	*last;
-
-	if (!*b || !(*b)->next)
+	if (!*lst)
+	{
+		*lst = new;
 		return ;
-	last = last_node(*b);
-	last->next = *b;
-	*b = last;
-	ft_printf("rrb\n");
+	}
+	last = ft_lstlast(*lst);
+	last->next = new;
 }
+/*
+#include <stdio.h>
 
-void	rrr(t_node **a, t_node **b)
+int	main(void)
 {
-	rra(a);
-	rrb(b);
-	ft_printf("rrr\n");
+	t_list	*a;
+	t_list	*b;
+
+	a = ft_lstnew("a");
+	b = ft_lstnew("b");
+	ft_lstadd_back(&a, b);
+	printf("%s", (char *)ft_lstlast(a)->content);
+	free(b);
+	free(a);
 }
+*/

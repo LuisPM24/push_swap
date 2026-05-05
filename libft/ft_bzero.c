@@ -1,44 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reserve_rotate.c                                   :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scamlett <scamlett@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/05 12:26:48 by scamlett          #+#    #+#             */
-/*   Updated: 2026/05/05 15:57:59 by scamlett         ###   ########.fr       */
+/*   Created: 2026/04/20 11:03:37 by scamlett          #+#    #+#             */
+/*   Updated: 2026/04/20 11:04:02 by scamlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	rra(t_node **a)
+void	ft_bzero(void *s, size_t n)
 {
-	t_node	*last;
-
-	if (!*a || !(*a)->next)
-		return ;
-	last = last_node(*a);
-	last->next = *a;
-	*a = last;
-	ft_printf("rra\n");
+	ft_memset(s, 0, n);
 }
+/*
+#include <stdio.h>
 
-void	rrb(t_node **b)
+int	main(void)
 {
-	t_node	*last;
+	char	str[] = "Hello, World!";
 
-	if (!*b || !(*b)->next)
-		return ;
-	last = last_node(*b);
-	last->next = *b;
-	*b = last;
-	ft_printf("rrb\n");
+	printf("Antes: %s\n", str);
+	ft_bzero(str, 5);
+	printf("Despues: %s\n", str);
+	return (0);
 }
-
-void	rrr(t_node **a, t_node **b)
-{
-	rra(a);
-	rrb(b);
-	ft_printf("rrr\n");
-}
+*/

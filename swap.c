@@ -6,13 +6,13 @@
 /*   By: scamlett <scamlett@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 10:36:43 by scamlett          #+#    #+#             */
-/*   Updated: 2026/05/05 12:37:47 by scamlett         ###   ########.fr       */
+/*   Updated: 2026/05/05 14:39:45 by scamlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Swap the first two elements at the top of stack A
+// Swap the first two elements of stack A
 void	sa(t_node **a)
 {
 	int	tmp;
@@ -25,7 +25,7 @@ void	sa(t_node **a)
 	ft_printf("sa\n");
 }
 
-// Swap the first two elements at the top of stack B
+// Swap the first two elements of stack B
 void	sb(t_node **b)
 {
 	int	tmp;
@@ -38,7 +38,7 @@ void	sb(t_node **b)
 	ft_printf("sb\n");
 }
 
-// Swap the first two elements at the top of both stacks A and B
+// Combine sa and sb
 void	ss(t_node **a, t_node **b)
 {
 	sa(a);

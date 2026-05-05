@@ -1,44 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reserve_rotate.c                                   :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scamlett <scamlett@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/05 12:26:48 by scamlett          #+#    #+#             */
-/*   Updated: 2026/05/05 15:57:59 by scamlett         ###   ########.fr       */
+/*   Created: 2026/04/28 10:36:57 by scamlett          #+#    #+#             */
+/*   Updated: 2026/05/04 23:43:49 by scamlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	rra(t_node **a)
+void	ft_putstr(char *str, int *output)
 {
-	t_node	*last;
+	unsigned int	i;
 
-	if (!*a || !(*a)->next)
+	i = 0;
+	if (str == NULL)
+	{
+		write(1, "(null)", 6);
+		*output += 6;
 		return ;
-	last = last_node(*a);
-	last->next = *a;
-	*a = last;
-	ft_printf("rra\n");
-}
-
-void	rrb(t_node **b)
-{
-	t_node	*last;
-
-	if (!*b || !(*b)->next)
-		return ;
-	last = last_node(*b);
-	last->next = *b;
-	*b = last;
-	ft_printf("rrb\n");
-}
-
-void	rrr(t_node **a, t_node **b)
-{
-	rra(a);
-	rrb(b);
-	ft_printf("rrr\n");
+	}
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+		(*output)++;
+	}
 }

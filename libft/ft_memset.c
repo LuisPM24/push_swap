@@ -1,44 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reserve_rotate.c                                   :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scamlett <scamlett@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/05 12:26:48 by scamlett          #+#    #+#             */
-/*   Updated: 2026/05/05 15:57:59 by scamlett         ###   ########.fr       */
+/*   Created: 2026/04/20 11:27:17 by scamlett          #+#    #+#             */
+/*   Updated: 2026/04/23 15:50:55 by scamlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	rra(t_node **a)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	t_node	*last;
+	size_t	i;
 
-	if (!*a || !(*a)->next)
-		return ;
-	last = last_node(*a);
-	last->next = *a;
-	*a = last;
-	ft_printf("rra\n");
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)s)[i] = (unsigned char)c;
+		i++;
+	}
+	return (s);
 }
+/*
+#include <stdio.h>
 
-void	rrb(t_node **b)
+int	main(void)
 {
-	t_node	*last;
+	char	str[20] = "abcdef";
 
-	if (!*b || !(*b)->next)
-		return ;
-	last = last_node(*b);
-	last->next = *b;
-	*b = last;
-	ft_printf("rrb\n");
+	ft_memset(str, 'X', 3);
+	printf("%s\n", str);
+	return (0);
 }
-
-void	rrr(t_node **a, t_node **b)
-{
-	rra(a);
-	rrb(b);
-	ft_printf("rrr\n");
-}
+*/

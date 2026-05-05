@@ -18,4 +18,5 @@ Susana 04/05 =
 Susana 05/05 = 
 - añado libft para poder usar ft_printf
 - reimplemento lstlast de libft en utils.c para poder usarlo en nuestro struct de nodo. Se tiene que reimplementar porque libft usa void * content, y nuestro nodo usa int value.
-- implemento funciones swap, push y rotate
+- implemento funciones swap, push, rotate y reverse
+- 

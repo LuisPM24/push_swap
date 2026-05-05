@@ -1,44 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reserve_rotate.c                                   :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scamlett <scamlett@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/05 12:26:48 by scamlett          #+#    #+#             */
-/*   Updated: 2026/05/05 15:57:59 by scamlett         ###   ########.fr       */
+/*   Created: 2026/04/20 11:13:29 by scamlett          #+#    #+#             */
+/*   Updated: 2026/04/20 11:13:30 by scamlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	rra(t_node **a)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	t_node	*last;
+	size_t	i;
 
-	if (!*a || !(*a)->next)
-		return ;
-	last = last_node(*a);
-	last->next = *a;
-	*a = last;
-	ft_printf("rra\n");
+	if (size != 0)
+	{
+		i = 0;
+		while (src[i] && i < (size - 1))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (ft_strlen(src));
 }
+/*
+#include <stdio.h>
 
-void	rrb(t_node **b)
+int	main(void)
 {
-	t_node	*last;
+	char	dst[6];
+	size_t	len;
 
-	if (!*b || !(*b)->next)
-		return ;
-	last = last_node(*b);
-	last->next = *b;
-	*b = last;
-	ft_printf("rrb\n");
+	len = ft_strlcpy(dst, "abcdef", sizeof(dst));
+	printf("dst: %s | len: %zu\n", dst, len);
+	return (0);
 }
-
-void	rrr(t_node **a, t_node **b)
-{
-	rra(a);
-	rrb(b);
-	ft_printf("rrr\n");
-}
+*/

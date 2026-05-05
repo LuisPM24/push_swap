@@ -1,44 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reserve_rotate.c                                   :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scamlett <scamlett@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/05 12:26:48 by scamlett          #+#    #+#             */
-/*   Updated: 2026/05/05 15:57:59 by scamlett         ###   ########.fr       */
+/*   Created: 2026/04/28 10:36:51 by scamlett          #+#    #+#             */
+/*   Updated: 2026/05/04 23:43:49 by scamlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	rra(t_node **a)
+void	ft_putnbr(int nb, int *output)
 {
-	t_node	*last;
+	int		result;
+	long	lnb;
 
-	if (!*a || !(*a)->next)
-		return ;
-	last = last_node(*a);
-	last->next = *a;
-	*a = last;
-	ft_printf("rra\n");
-}
-
-void	rrb(t_node **b)
-{
-	t_node	*last;
-
-	if (!*b || !(*b)->next)
-		return ;
-	last = last_node(*b);
-	last->next = *b;
-	*b = last;
-	ft_printf("rrb\n");
-}
-
-void	rrr(t_node **a, t_node **b)
-{
-	rra(a);
-	rrb(b);
-	ft_printf("rrr\n");
+	lnb = nb;
+	if (lnb < 0)
+	{
+		write(1, "-", 1);
+		*output += 1;
+		lnb = -lnb;
+	}
+	if (lnb >= 10)
+	{
+		ft_putnbr(lnb / 10, output);
+	}
+	result = (lnb % 10) + '0';
+	write(1, &result, 1);
+	(*output)++;
 }

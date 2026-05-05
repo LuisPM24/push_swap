@@ -6,7 +6,7 @@
 /*   By: scamlett <scamlett@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:15:20 by scamlett          #+#    #+#             */
-/*   Updated: 2026/05/05 10:47:20 by scamlett         ###   ########.fr       */
+/*   Updated: 2026/05/05 15:02:21 by scamlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,17 @@
 
 typedef struct s_node
 {
+	int				index;
 	int				value;
 	struct s_node	*next;
 }					t_node;
 
+typedef struct s_stack
+{
+	char			name;
+	t_node			*head;
+	unsigned int	size;
+}					t_stack;
 // utils.c
 t_node				*last_node(t_node *lst);
 
@@ -44,4 +51,6 @@ void				rr(t_node **a, t_node **b);
 void				rra(t_node **a);
 void				rrb(t_node **b);
 void				rrr(t_node **a, t_node **b);
+
+t_stack				*init_stack(char name);
 #endif

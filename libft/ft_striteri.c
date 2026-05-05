@@ -1,44 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reserve_rotate.c                                   :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: scamlett <scamlett@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/05 12:26:48 by scamlett          #+#    #+#             */
-/*   Updated: 2026/05/05 15:57:59 by scamlett         ###   ########.fr       */
+/*   Created: 2026/04/21 18:01:22 by scamlett          #+#    #+#             */
+/*   Updated: 2026/04/22 14:36:14 by scamlett         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	rra(t_node **a)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	t_node	*last;
+	unsigned int	i;
 
-	if (!*a || !(*a)->next)
+	if (!s || !f)
 		return ;
-	last = last_node(*a);
-	last->next = *a;
-	*a = last;
-	ft_printf("rra\n");
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
+/*
+#include <stdio.h>
 
-void	rrb(t_node **b)
+static void	to_upper_even(unsigned int i, char *c)
 {
-	t_node	*last;
-
-	if (!*b || !(*b)->next)
-		return ;
-	last = last_node(*b);
-	last->next = *b;
-	*b = last;
-	ft_printf("rrb\n");
+	if (i % 2 == 0 && *c >= 'a' && *c <= 'z')
+		*c -= 32;
 }
 
-void	rrr(t_node **a, t_node **b)
+int	main(void)
 {
-	rra(a);
-	rrb(b);
-	ft_printf("rrr\n");
+	char	str[] = "abcdef";
+
+	ft_striteri(str, to_upper_even);
+	printf("striteri: %s\n", str);
+	return (0);
 }
+*/
