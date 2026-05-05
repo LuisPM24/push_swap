@@ -10,8 +10,12 @@
 
 ## A detailed explanation and justification of the algorithms selected for this project must also be included.
 
-Susana 04/05 = creo esqueleto de archivos, implemento función grado de desorden de array, creo struct de nodo
+Susana 04/05 = 
+- creo esqueleto de archivos
+- implemento función grado de desorden de array
+- creo struct de nodo
 
-Susana 05/05 = añado libft para poder usar ft_printf, reimplemento lstlast de libft en utils.c para poder usarlo en nuestro struct de nodo. Se tiene que reimplementar porque libft usa void * content, y nuestro nodo usa int value.
-
+Susana 05/05 = 
+- añado libft para poder usar ft_printf
+- reimplemento lstlast de libft en utils.c para poder usarlo en nuestro struct de nodo. Se tiene que reimplementar porque libft usa void * content, y nuestro nodo usa int value.
 - implemento funciones swap, push y rotate
