@@ -1,17 +1,20 @@
 NAME = push_swap
+
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-LIBFT_DIR = libft
-LIBFT = $(LIBFT_DIR)/libft.a
+DIR = src
+LIBFT_DIR = $(DIR)/libft
 
-SRCS = push_swap.c \
-       disorder.c \
-	   push.c \
-	   swap.c \
-	   rotate.c \
-	   reverse_rotate.c \
-	   utils.c \
+LIBFT = $(DIR)/$(LIBFT_DIR)/libft.a
+
+SRCS = $(DIR)/push_swap.c \
+       $(DIR)/disorder.c \
+	   $(DIR)/push.c \
+	   $(DIR)/swap.c \
+	   $(DIR)/rotate.c \
+	   $(DIR)/reserve_rotate.c \
+	   $(DIR)/utils.c
        
 
 OBJS = $(SRCS:.c=.o)
@@ -28,11 +31,11 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJS)
 	make -C $(LIBFT_DIR) clean
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 	make -C $(LIBFT_DIR) fclean
 
 re: fclean all

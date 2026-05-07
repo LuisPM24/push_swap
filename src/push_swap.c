@@ -23,7 +23,7 @@ This is the default behavior if no selector is given.*/
 
 // crear una funcion que crea una pila vacia (a o b) e iniliza la pila vacia a 0 = init
 // devuelve stack a o stack b
-t_stack	*init_stack(char name)
+static t_stack	*init_stack(char name)
 {
 	t_stack	*stack;
 
@@ -33,27 +33,14 @@ t_stack	*init_stack(char name)
 	stack->name = name;
 	stack->head = NULL;
 	stack->size = 0;
+	stack->bench = 0;
+	stack->strategy = 0;
 	return (stack);
-}
-#include <stdio.h>
-
-int	main(int argc, char **argv)
-{
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-
-	(void)argc;
-	stack_a = init_stack('a');
-	stack_b = init_stack('b');
-	if (!stack_a)
-		printf("Error\n");
-	printf("Bien\n");
-	return (0);
 }
 
 // init_node:
 
-t_node	*init_node(int value)
+static t_node	*init_node(int value)
 {
 	t_node	*node;
 
@@ -64,8 +51,62 @@ t_node	*init_node(int value)
 	node->index = 0;
 	return (node);
 }
+
 // fill_stack:
-t_stack	*fill_stack(t_stack *stack)
+static void	fill_stack(t_stack *stack, char **argv)
 {
-	
+	t_node	*node;
+	t_node	*position;
+	int		count;
+
+	count = 1;
+	position = NULL;
+	stack->head = NULL;
+	while (argv[count])
+	{
+		node = malloc(sizeof(t_node));
+		if (!node)
+			return ;
+		node->index = count - 1;
+		node->value = ft_atoi(argv[count]);
+		node->next = NULL;
+		if (!stack->head)
+			stack->head = node;
+		else
+			position->next = node;
+		position = node;
+		count++;
+	}
+	stack->size = count;
+}
+
+/*
+ELIMINAR STDIO.H AL TERMINAR
+*/
+#include <stdio.h>
+static void	print_stack(t_stack *stack)
+{
+	t_node *actual;
+
+	actual = stack->head;
+	printf("Stack %c\n", stack->name);
+	printf("-------\n\n");
+	while (actual)
+	{
+		printf("Index: %i; Value: %i;\n", actual->index, actual->value);
+		actual = actual->next;
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+
+	(void)argc;
+	stack_a = init_stack('a');
+	stack_b = init_stack('b');
+	fill_stack(stack_a, argv);
+	print_stack(stack_a);
+	return (0);
 }

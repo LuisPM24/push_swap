@@ -16,6 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "libft/libft.h"
 
 typedef struct s_node
 {
@@ -29,7 +30,10 @@ typedef struct s_stack
 	char			name;
 	t_node			*head;
 	unsigned int	size;
+	int				bench;
+	int				strategy;
 }					t_stack;
+
 // utils.c
 t_node				*last_node(t_node *lst);
 
@@ -37,20 +41,16 @@ t_node				*last_node(t_node *lst);
 void				sa(t_node **a);
 void				sb(t_node **b);
 void				ss(t_node **a, t_node **b);
-
 // push.c
 void				pa(t_node **a, t_node **b);
 void				pb(t_node **a, t_node **b);
-
 // rotate.c
 void				ra(t_node **a);
 void				rb(t_node **b);
 void				rr(t_node **a, t_node **b);
-
 // reverse_rotate.c
 void				rra(t_node **a);
 void				rrb(t_node **b);
 void				rrr(t_node **a, t_node **b);
 
-t_stack				*init_stack(char name);
 #endif
