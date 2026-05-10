@@ -20,5 +20,8 @@ Susana 05/05 =
 - reimplemento lstlast de libft en utils.c para poder usarlo en nuestro struct de nodo. Se tiene que reimplementar porque libft usa void * content, y nuestro nodo usa int value.
 - implemento funciones swap, push, rotate y reverse
 
-Luis 07/05 =
+Luis 07/05 - 10/05 =
 - Implementación de funciones estáticas en el archivo 'push_swap.c': Creación e inicialización de pilas de números.
+- Implementación de la función 'ft_strcmp' que compara dos cadenas de texto completamente.
+- Manejo de flags dentro de la variable t_stack
+- Manejo de errores dentro de la entrada: Actualmente, se permite el uso de dos flags de estrategia, aplicandose únicamente la última puesta (Esto lo debemos hablar porque se puede manejar como error, aunque no parece que sea obligatorio).

@@ -14,7 +14,9 @@ SRCS = $(DIR)/push_swap.c \
 	   $(DIR)/swap.c \
 	   $(DIR)/rotate.c \
 	   $(DIR)/reserve_rotate.c \
-	   $(DIR)/utils.c
+	   $(DIR)/utils.c \
+	   $(DIR)/stack_parser.c \
+	   $(DIR)/search_errors.c
        
 
 OBJS = $(SRCS:.c=.o)
