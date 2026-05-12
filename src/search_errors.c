@@ -6,7 +6,7 @@
 /*   By: lupalomi <lupalomi@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/09 12:08:19 by lupalomi          #+#    #+#             */
-/*   Updated: 2026/05/09 12:08:23 by lupalomi         ###   ########.fr       */
+/*   Updated: 2026/05/12 12:59:07 by lupalomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,6 @@ static int	valid_int(char *str)
 	return (limit_comprobation(str, &lnbr, &count, &sign));
 }
 
-static int	is_flag(char *str)
-{
-	if (ft_strcmp(str, "--bench") == 0
-		|| ft_strcmp(str, "--adaptative") == 0
-		|| ft_strcmp(str, "--simple") == 0
-		|| ft_strcmp(str, "--medium") == 0
-		|| ft_strcmp(str, "--complex") == 0)
-		return (1);
-	return (0);
-}
-
 static int	search_repetitions(char **argv, int position)
 {
 	int	count;
@@ -69,12 +58,12 @@ static int	search_repetitions(char **argv, int position)
 	count = 1;
 	while (argv[position] && argv[position + count])
 	{
-		if ((position == 1)
+		if ((position == 1) && is_flag(argv[position])
 			&& ft_strcmp(argv[position], argv[position + count]) == 0)
 			return (1);
-		else if ((position != 1 && position != 2)
-			&& ft_atoi(argv[position]) == ft_atoi(argv[position + count]))
-			return (1);
+		else if (!is_flag(argv[position])
+				&& ft_atoi(argv[position]) == ft_atoi(argv[position + count]))
+				return (1);
 		count++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: scamlett <scamlett@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:15:20 by scamlett          #+#    #+#             */
-/*   Updated: 2026/05/05 15:02:21 by scamlett         ###   ########.fr       */
+/*   Updated: 2026/05/12 12:46:22 by lupalomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_stack
 	unsigned int	size;
 	int				bench;
 	int				strategy;
+	int				disorder;
 }					t_stack;
 
 //search_errors.c
@@ -41,8 +42,16 @@ int		search_errors(char **argv);
 // stack_parser.c
 void	stack_parser(t_stack *stack, char **argv, int *position);
 
+// start_algorithm.c
+void	start_algorithm(t_stack *stack_a, t_stack *stack_b);
+
+// disorder.c
+int		disorder(t_stack *stack);
+
 // utils.c
 t_node	*last_node(t_node *lst);
+int		is_flag(char *str);
+void	print_error(t_stack *stack);
 void	print_stack(t_stack *stack);
 void	free_stack(t_stack *stack);
 

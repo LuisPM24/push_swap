@@ -6,7 +6,7 @@
 /*   By: scamlett <scamlett@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 15:20:31 by scamlett          #+#    #+#             */
-/*   Updated: 2026/05/05 15:58:34 by scamlett         ###   ########.fr       */
+/*   Updated: 2026/05/12 13:00:38 by lupalomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static t_stack	*init_stack(char name, char **argv, int *position)
 	stack->size = 0;
 	if (name == 'a')
 		stack_parser(stack, argv, position);
+	stack->disorder = 0;
 	return (stack);
 }
 
@@ -63,17 +64,15 @@ int	main(int argc, char **argv)
 	t_stack	*stack_b;
 	int		position;
 
-	if (argc < 1)
+	if (argc <= 1)
 		return (0);
 	position = 1;
 	if (search_errors(argv))
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
+		print_error(NULL);
 	stack_a = init_stack('a', argv, &position);
 	stack_b = init_stack('b', argv, &position);
 	fill_stack(stack_a, argv, position);
+	start_algorithm(stack_a, stack_b);
 	print_stack(stack_a);
 	print_stack(stack_b);
 	free_stack(stack_a);

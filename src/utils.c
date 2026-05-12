@@ -26,6 +26,24 @@ t_node	*last_node(t_node *lst)
 	return (lst);
 }
 
+int	is_flag(char *str)
+{
+	if (ft_strcmp(str, "--bench") == 0
+		|| ft_strcmp(str, "--adaptative") == 0
+		|| ft_strcmp(str, "--simple") == 0
+		|| ft_strcmp(str, "--medium") == 0
+		|| ft_strcmp(str, "--complex") == 0)
+		return (1);
+	return (0);
+}
+
+void	print_error(t_stack *stack)
+{
+	ft_printf("Error\n");
+	free_stack(stack);
+	exit(EXIT_FAILURE);
+}
+
 void	print_stack(t_stack *stack)
 {
 	t_node	*actual;
