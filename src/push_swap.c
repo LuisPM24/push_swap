@@ -15,7 +15,7 @@
 // crear una funcion que crea una pila vacia (a o b) e iniliza la pila
 // vacia a 0 = init
 // devuelve stack a o stack b
-static t_stack	*init_stack(char name, char **argv, int *position)
+static t_stack	*init_stack(char name)
 {
 	t_stack	*stack;
 
@@ -25,57 +25,64 @@ static t_stack	*init_stack(char name, char **argv, int *position)
 	stack->name = name;
 	stack->head = NULL;
 	stack->size = 0;
-	if (name == 'a')
-		stack_parser(stack, argv, position);
+	stack->flags = 0;
+	stack->bench = 0;
 	stack->disorder = 0;
 	return (stack);
 }
 
-static void	fill_stack(t_stack *stack, char **argv, int pos)
+static t_node	*new_node(int value)
 {
 	t_node	*node;
-	t_node	*position;
-	int		count;
 
-	count = 0;
-	position = NULL;
-	stack->head = NULL;
-	while (argv[pos + count])
+	node = malloc(sizeof(t_node));
+	if (!node)
+		return (NULL);
+	node->value = value;
+	node->index = 0;
+	node->next = NULL;
+	return (node);
+}
+
+void	add_to_stack(t_stack *stack, int value)
+{
+	t_node	*node;
+	t_node	*last;
+	int		index;
+
+	node = new_node(value);
+	if (!node)
+		return ;
+	if (!stack->head)
+		stack->head = node;
+	else
 	{
-		node = malloc(sizeof(t_node));
-		if (!node)
-			return ;
-		node->index = count;
-		node->value = ft_atoi(argv[pos + count]);
-		node->next = NULL;
-		if (!stack->head)
-			stack->head = node;
-		else
-			position->next = node;
-		position = node;
-		count++;
+		last = stack->head;
+		while (last->next)
+			last = last->next;
+		index = last->index;
+		last->next = node;
+		node->index = index + 1;
 	}
-	stack->size = count;
+	stack->size++;
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		position;
+	char	**args;
 
-	if (argc <= 1)
+	if (argc < 2)
 		return (0);
-	position = 1;
-	if (search_errors(argv))
-		print_error(NULL);
-	stack_a = init_stack('a', argv, &position);
-	stack_b = init_stack('b', argv, &position);
-	fill_stack(stack_a, argv, position);
-	start_algorithm(stack_a, stack_b);
+	stack_a = init_stack('a');
+	args = parse_args(stack_a, argc, argv);
+	if (!validate_args(args, stack_a))
+	{
+		fsin(argc, argv, args);
+		print_error(stack_a);
+	}
+	fsin(argc, argv, args);
 	print_stack(stack_a);
-	print_stack(stack_b);
 	free_stack(stack_a);
-	free_stack(stack_b);
 	return (0);
 }

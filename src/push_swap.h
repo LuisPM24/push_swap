@@ -31,16 +31,30 @@ typedef struct s_stack
 	char			name;
 	t_node			*head;
 	unsigned int	size;
+	unsigned int	flags;
 	int				bench;
 	int				strategy;
 	int				disorder;
 }					t_stack;
 
-//search_errors.c
-int		search_errors(char **argv);
+void	print_stack(t_stack *stack);
+
+// push_swap.c
+void	add_to_stack(t_stack *stack, int value);
 
 // stack_parser.c
 void	stack_parser(t_stack *stack, char **argv, int *position);
+
+// args_parser.c
+char	**parse_args(t_stack *stack, int argc, char **argv);
+
+// args_utils.c
+int		valid_int(char *str);
+int		validate_args(char **args, t_stack *a);
+
+// split_utils.c
+void	free_split(char **split);
+void	fsin(int argc, char **argv, char **split);
 
 // start_algorithm.c
 void	start_algorithm(t_stack *stack_a, t_stack *stack_b);
@@ -52,7 +66,7 @@ int		disorder(t_stack *stack);
 t_node	*last_node(t_node *lst);
 int		is_flag(char *str);
 void	print_error(t_stack *stack);
-void	print_stack(t_stack *stack);
+int		is_strat(char *str);
 void	free_stack(t_stack *stack);
 
 // swap.c

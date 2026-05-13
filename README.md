@@ -25,3 +25,7 @@ Luis 07/05 - 10/05 =
 - Implementación de la función 'ft_strcmp' que compara dos cadenas de texto completamente.
 - Manejo de flags dentro de la variable t_stack
 - Manejo de errores dentro de la entrada: Actualmente, se permite el uso de dos flags de estrategia, aplicandose únicamente la última puesta (Esto lo debemos hablar porque se puede manejar como error, aunque no parece que sea obligatorio).
+- Liberación de recursos al cerrar el programa
+
+Luis 13/05 =
+- Implementación de un nuevo parser: Ahora se aceptan y gestionan correctamente cadenas de números en un mismo string y números separados, PERO NO UNA COMBINACIÓN DE AMBOS (El ejercicio tampoco dice nada al respecto).

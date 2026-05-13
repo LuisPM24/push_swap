@@ -37,12 +37,23 @@ int	is_flag(char *str)
 	return (0);
 }
 
+int	is_strat(char *str)
+{
+	if (ft_strcmp(str, "--adaptative") == 0
+		|| ft_strcmp(str, "--simple") == 0
+		|| ft_strcmp(str, "--medium") == 0
+		|| ft_strcmp(str, "--complex") == 0)
+		return (1);
+	return (0);
+}
+
 void	print_error(t_stack *stack)
 {
-	ft_printf("Error\n");
+	ft_putstr_fd("Error\n", 2);
 	free_stack(stack);
 	exit(EXIT_FAILURE);
 }
+
 
 void	print_stack(t_stack *stack)
 {
@@ -58,6 +69,7 @@ void	print_stack(t_stack *stack)
 	}
 	ft_printf("\n");
 }
+
 
 void	free_stack(t_stack *stack)
 {

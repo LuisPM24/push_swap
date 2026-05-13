@@ -1,16 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   search_errors.c                                    :+:      :+:    :+:   */
+/*   args_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lupalomi <lupalomi@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/09 12:08:19 by lupalomi          #+#    #+#             */
-/*   Updated: 2026/05/12 12:59:07 by lupalomi         ###   ########.fr       */
+/*   Created: 2026/05/13 11:11:41 by lupalomi          #+#    #+#             */
+/*   Updated: 2026/05/13 11:11:42 by lupalomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_duplicate(t_stack *stack, int value)
+{
+	t_node	*cur;
+
+	cur = stack->head;
+	while (cur)
+	{
+		if (cur->value == value)
+			return (1);
+		cur = cur->next;
+	}
+	return (0);
+}
 
 static int	limit_comprobation(char *str, long *lnbr, int *count,
 	int *sign)
@@ -29,7 +43,7 @@ static int	limit_comprobation(char *str, long *lnbr, int *count,
 	return (1);
 }
 
-static int	valid_int(char *str)
+int	valid_int(char *str)
 {
 	int		count;
 	int		sign;
@@ -51,40 +65,23 @@ static int	valid_int(char *str)
 	return (limit_comprobation(str, &lnbr, &count, &sign));
 }
 
-static int	search_repetitions(char **argv, int position)
+int	validate_args(char **args, t_stack *a)
 {
-	int	count;
+	int		count;
+	long	nbr;
 
-	count = 1;
-	while (argv[position] && argv[position + count])
+	count = 0;
+	while (args[count])
 	{
-		if ((position == 1) && is_flag(argv[position])
-			&& ft_strcmp(argv[position], argv[position + count]) == 0)
-			return (1);
-		else if (!is_flag(argv[position])
-				&& ft_atoi(argv[position]) == ft_atoi(argv[position + count]))
-				return (1);
+		if (!valid_int(args[count]))
+			return (0);
+		nbr = ft_atol(args[count]);
+		if (nbr > INT_MAX || nbr < INT_MIN)
+			return (0);
+		if (is_duplicate(a, nbr))
+			return (0);
+		add_to_stack(a, nbr);
 		count++;
 	}
-	return (0);
-}
-
-int	search_errors(char **argv)
-{
-	int	count;
-
-	count = 1;
-	while (argv[count])
-	{
-		if ((count == 1 || count == 2))
-		{
-			if ((!valid_int(argv[count]) && !is_flag(argv[count]))
-				|| search_repetitions(argv, count))
-				return (1);
-		}
-		else if (!valid_int(argv[count]) || search_repetitions(argv, count))
-			return (1);
-		count++;
-	}
-	return (0);
+	return (1);
 }
