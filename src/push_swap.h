@@ -37,7 +37,7 @@ typedef struct s_stack
 	int				disorder;
 }					t_stack;
 
-void	print_stack(t_stack *stack);
+// void	print_stack(t_stack *stack);
 
 // push_swap.c
 void	add_to_stack(t_stack *stack, int value);
@@ -62,6 +62,9 @@ void	start_algorithm(t_stack *stack_a, t_stack *stack_b);
 // disorder.c
 int		disorder(t_stack *stack);
 
+// minimun_extraction.c
+void    minimun_extraction(t_stack *stack_a, t_stack *stack_b);
+
 // utils.c
 t_node	*last_node(t_node *lst);
 int		is_flag(char *str);
@@ -70,19 +73,19 @@ int		is_strat(char *str);
 void	free_stack(t_stack *stack);
 
 // swap.c
-void	sa(t_node **a);
-void	sb(t_node **b);
-void	ss(t_node **a, t_node **b);
+void	sa(t_stack *stack_a);
+void	sb(t_stack *stack_b);
+void	ss(t_stack *stack_a, t_stack *stack_b);
 // push.c
-void	pa(t_node **a, t_node **b);
-void	pb(t_node **a, t_node **b);
+void	pa(t_stack *stack_a, t_stack *stack_b);
+void	pb(t_stack *stack_a, t_stack *stack_b);
 // rotate.c
-void	ra(t_node **a);
-void	rb(t_node **b);
-void	rr(t_node **a, t_node **b);
+void	ra(t_stack *stack_a);
+void	rb(t_stack *stack_b);
+void	rr(t_stack *stack_a, t_stack *stack_b);
 // reverse_rotate.c
-void	rra(t_node **a);
-void	rrb(t_node **b);
-void	rrr(t_node **a, t_node **b);
+void	rra(t_stack *stack_a);
+void	rrb(t_stack *stack_b);
+void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 #endif

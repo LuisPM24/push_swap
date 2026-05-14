@@ -54,7 +54,7 @@ void	print_error(t_stack *stack)
 	exit(EXIT_FAILURE);
 }
 
-
+/*
 void	print_stack(t_stack *stack)
 {
 	t_node	*actual;
@@ -69,7 +69,7 @@ void	print_stack(t_stack *stack)
 	}
 	ft_printf("\n");
 }
-
+*/
 
 void	free_stack(t_stack *stack)
 {

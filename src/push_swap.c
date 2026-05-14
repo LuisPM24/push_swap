@@ -70,19 +70,22 @@ void	add_to_stack(t_stack *stack, int value)
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
+	t_stack	*stack_b;
 	char	**args;
 
 	if (argc < 2)
 		return (0);
 	stack_a = init_stack('a');
+	stack_b = init_stack('b');
 	args = parse_args(stack_a, argc, argv);
 	if (!validate_args(args, stack_a))
 	{
 		fsin(argc, argv, args);
 		print_error(stack_a);
 	}
+	start_algorithm(stack_a, stack_b);
 	fsin(argc, argv, args);
-	print_stack(stack_a);
+	// print_stack(stack_a);
 	free_stack(stack_a);
 	return (0);
 }

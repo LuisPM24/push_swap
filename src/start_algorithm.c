@@ -22,6 +22,12 @@ static void		strategy_selector(t_stack *stack)
 		stack->strategy = 1;
 }
 
+static void	choose_algorithm(t_stack *stack_a, t_stack *stack_b)
+{
+	if (stack_a->strategy == 1)
+		minimun_extraction(stack_a, stack_b);
+}
+
 void	start_algorithm(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->size == 0)
@@ -29,6 +35,6 @@ void	start_algorithm(t_stack *stack_a, t_stack *stack_b)
 	stack_a->disorder = disorder(stack_a);
 	if (stack_a->strategy == 0)
 		strategy_selector(stack_a);
-	stack_b->size = 0;
+	choose_algorithm(stack_a, stack_b);
 	return ;
 }

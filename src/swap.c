@@ -12,36 +12,38 @@
 
 #include "push_swap.h"
 
-// Swap the first two elements of stack A
-void	sa(t_node **a)
+static void	swap_stack(t_stack *stack)
 {
-	int	tmp;
+	t_node	*first;
+	t_node	*second;
 
-	if (!*a || !(*a)->next)
+	if (!stack || stack->size < 2)
 		return ;
-	tmp = (*a)->value;
-	(*a)->value = (*a)->next->value;
-	(*a)->next->value = tmp;
+	first = stack->head;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	stack->head = second;
+}
+
+// Swap the first two elements of stack A
+void	sa(t_stack *stack_a)
+{
+	swap_stack(stack_a);
 	ft_printf("sa\n");
 }
 
 // Swap the first two elements of stack B
-void	sb(t_node **b)
+void	sb(t_stack *stack_b)
 {
-	int	tmp;
-
-	if (!*b || !(*b)->next)
-		return ;
-	tmp = (*b)->value;
-	(*b)->value = (*b)->next->value;
-	(*b)->next->value = tmp;
+	swap_stack(stack_b);
 	ft_printf("sb\n");
 }
 
 // Combine sa and sb
-void	ss(t_node **a, t_node **b)
+void	ss(t_stack *stack_a, t_stack *stack_b)
 {
-	sa(a);
-	sb(b);
+	swap_stack(stack_a);
+	swap_stack(stack_b);
 	ft_printf("ss\n");
 }

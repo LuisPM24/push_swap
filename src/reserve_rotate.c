@@ -12,33 +12,40 @@
 
 #include "push_swap.h"
 
-void	rra(t_node **a)
+static void	reverse_rotate_stack(t_stack *stack)
 {
+	t_node	*prev;
 	t_node	*last;
 
-	if (!*a || !(*a)->next)
+	if (!stack || !stack->head || !stack->head->next)
 		return ;
-	last = last_node(*a);
-	last->next = *a;
-	*a = last;
+	prev = NULL;
+	last = stack->head;
+	while (last->next)
+	{
+		prev = last;
+		last = last->next;
+	}
+	prev->next = NULL;
+	last->next = stack->head;
+	stack->head = last;
+}
+
+void	rra(t_stack *stack_a)
+{
+	reverse_rotate_stack(stack_a);
 	ft_printf("rra\n");
 }
 
-void	rrb(t_node **b)
+void	rrb(t_stack *stack_b)
 {
-	t_node	*last;
-
-	if (!*b || !(*b)->next)
-		return ;
-	last = last_node(*b);
-	last->next = *b;
-	*b = last;
+	reverse_rotate_stack(stack_b);
 	ft_printf("rrb\n");
 }
 
-void	rrr(t_node **a, t_node **b)
+void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	rra(a);
-	rrb(b);
+	reverse_rotate_stack(stack_a);
+	reverse_rotate_stack(stack_b);
 	ft_printf("rrr\n");
 }

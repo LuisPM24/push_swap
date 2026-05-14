@@ -29,3 +29,7 @@ Luis 07/05 - 10/05 =
 
 Luis 13/05 =
 - Implementación de un nuevo parser: Ahora se aceptan y gestionan correctamente cadenas de números en un mismo string y números separados, PERO NO UNA COMBINACIÓN DE AMBOS (El ejercicio tampoco dice nada al respecto).
+
+Luis 14/05 =
+- Implementación del algoritmo simple minimun extraction: Consiste en buscar el minimo y ordenar la lista de manera inversa en el stack b. Al hacer esto, haciendo recursivamente push B, logramos conseguir la lista ordenada. Solo funciona con la flag --simple o si el disorder es de 0,20 (20%)
+- Corrección de las funciones de movimientos. Todas usaban los nodos como referencia en lugar de los propios stacks.
