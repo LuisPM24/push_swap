@@ -14,9 +14,9 @@
 
 static void		strategy_selector(t_stack *stack)
 {
-	if (stack->disorder >= 50)
+	if (stack->disorder >= 0.50)
 		stack->strategy = 3;
-	else if (stack->disorder >= 20)
+	else if (stack->disorder >= 0.20)
 		stack->strategy = 2;
 	else
 		stack->strategy = 1;

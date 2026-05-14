@@ -34,7 +34,7 @@ typedef struct s_stack
 	unsigned int	flags;
 	int				bench;
 	int				strategy;
-	int				disorder;
+	float			disorder;
 }					t_stack;
 
 // void	print_stack(t_stack *stack);
@@ -60,7 +60,7 @@ void	fsin(int argc, char **argv, char **split);
 void	start_algorithm(t_stack *stack_a, t_stack *stack_b);
 
 // disorder.c
-int		disorder(t_stack *stack);
+float	disorder(t_stack *stack);
 
 // minimun_extraction.c
 void    minimun_extraction(t_stack *stack_a, t_stack *stack_b);

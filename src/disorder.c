@@ -43,12 +43,12 @@ float	compute_disorder(int *a, int size)
 }
 */
 
-int	disorder(t_stack *stack)
+float	disorder(t_stack *stack)
 {
 	t_node	*node1;
 	t_node	*node2;
-	int		mistakes;
-	int		total_pairs;
+	float	mistakes;
+	float	total_pairs;
 
 	mistakes = 0;
 	total_pairs = 0;
@@ -69,5 +69,5 @@ int	disorder(t_stack *stack)
 	}
 	if (total_pairs == 0)
 		return (0);
-	return ((mistakes * 100) / total_pairs);
+	return (mistakes / total_pairs);
 }
