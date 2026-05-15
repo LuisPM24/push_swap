@@ -21,7 +21,7 @@
 
 typedef struct s_node
 {
-	int				index;
+	unsigned int	index;
 	int				value;
 	struct s_node	*next;
 }					t_node;
@@ -31,6 +31,7 @@ typedef struct s_stack
 	char			name;
 	t_node			*head;
 	unsigned int	size;
+	unsigned int	total_nbr;
 	unsigned int	flags;
 	int				bench;
 	int				strategy;
@@ -58,12 +59,21 @@ void	fsin(int argc, char **argv, char **split);
 
 // start_algorithm.c
 void	start_algorithm(t_stack *stack_a, t_stack *stack_b);
+void	chunks(t_stack *stack_a, t_stack *stack_b);
 
 // disorder.c
 float	disorder(t_stack *stack);
 
 // minimun_extraction.c
-void    minimun_extraction(t_stack *stack_a, t_stack *stack_b);
+void	minimun_extraction(t_stack *stack_a, t_stack *stack_b);
+
+// chunks.c
+void	chunks(t_stack *stack_a, t_stack *stack_b);
+void	push_chunks_to_b(t_stack *stack_a, t_stack *stack_b);
+
+// chunks_utils.c
+void	assign_chunks_indexes(t_stack *stack);
+void	push_chunks_to_a(t_stack *stack_a, t_stack *stack_b);
 
 // utils.c
 t_node	*last_node(t_node *lst);

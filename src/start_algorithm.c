@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void		strategy_selector(t_stack *stack)
+static void	strategy_selector(t_stack *stack)
 {
 	if (stack->disorder >= 0.50)
 		stack->strategy = 3;
@@ -26,6 +26,8 @@ static void	choose_algorithm(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->strategy == 1)
 		minimun_extraction(stack_a, stack_b);
+	else if (stack_a->strategy == 2)
+		chunks(stack_a, stack_b);
 }
 
 void	start_algorithm(t_stack *stack_a, t_stack *stack_b)

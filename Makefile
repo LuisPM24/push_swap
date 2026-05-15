@@ -20,7 +20,9 @@ SRCS = $(DIR)/push_swap.c \
 	   $(DIR)/args_utils.c \
 	   $(DIR)/split_utils.c \
 	   $(DIR)/start_algorithm.c \
-	   $(DIR)/minimun_extraction.c
+	   $(DIR)/minimun_extraction.c \
+	   $(DIR)/chunks_utils.c \
+	   $(DIR)/chunks.c
        
 
 OBJS = $(SRCS:.c=.o)

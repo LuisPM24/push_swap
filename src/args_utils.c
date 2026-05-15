@@ -65,7 +65,7 @@ int	valid_int(char *str)
 	return (limit_comprobation(str, &lnbr, &count, &sign));
 }
 
-int	validate_args(char **args, t_stack *a)
+int	validate_args(char **args, t_stack *stack)
 {
 	int		count;
 	long	nbr;
@@ -78,10 +78,11 @@ int	validate_args(char **args, t_stack *a)
 		nbr = ft_atol(args[count]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
 			return (0);
-		if (is_duplicate(a, nbr))
+		if (is_duplicate(stack, nbr))
 			return (0);
-		add_to_stack(a, nbr);
+		add_to_stack(stack, nbr);
 		count++;
 	}
+	stack->total_nbr = stack->size;
 	return (1);
 }

@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split_utils.c                                      :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lupalomi <lupalomi@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/13 12:30:17 by lupalomi          #+#    #+#             */
-/*   Updated: 2026/05/13 12:30:18 by lupalomi         ###   ########.fr       */
+/*   Created: 2026/05/14 18:03:00 by lupalomi          #+#    #+#             */
+/*   Updated: 2026/05/14 18:04:06 by lupalomi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_split(char **split)
-{
-	int	count;
-
-	count = 0;
-	while (split[count])
-		free(split[count++]);
-	free(split);
-}
-
-void	fsin(int argc, char **argv, char **split)
+int	ft_sqrt(int nbr)
 {
 	int	count;
 
 	count = 1;
-	while (argv[count] && is_flag(argv[count]))
+	while (count * count < nbr)
 		count++;
-	if (argc - count == 1)
-		free_split(split);
+	return (count);
 }

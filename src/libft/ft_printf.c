@@ -15,37 +15,21 @@
 static void	select_type(char c, va_list args, int *output)
 {
 	if (c == 'c')
-	{
 		ft_putchar((char)va_arg(args, int), output);
-	}
 	else if (c == 's')
-	{
 		ft_putstr(va_arg(args, char *), output);
-	}
 	else if (c == 'p')
-	{
 		ft_putvoid(va_arg(args, void *), output);
-	}
 	else if (c == 'i' || c == 'd')
-	{
 		ft_putnbr(va_arg(args, int), output);
-	}
 	else if (c == 'u')
-	{
 		ft_putunsig(va_arg(args, unsigned int), output);
-	}
 	else if (c == 'x')
-	{
 		ft_puthex(va_arg(args, unsigned int), output);
-	}
 	else if (c == 'X')
-	{
 		ft_putupphex(va_arg(args, unsigned int), output);
-	}
 	else if (c == '%')
-	{
 		ft_putchar('%', output);
-	}
 }
 
 int	ft_printf(char const *fmt, ...)

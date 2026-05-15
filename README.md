@@ -32,4 +32,8 @@ Luis 13/05 =
 
 Luis 14/05 =
 - Implementación del algoritmo simple minimun extraction: Consiste en buscar el minimo y ordenar la lista de manera inversa en el stack b. Al hacer esto, haciendo recursivamente push B, logramos conseguir la lista ordenada. Solo funciona con la flag --simple o si el disorder es de 0,20 (20%)
-- Corrección de las funciones de movimientos. Todas usaban los nodos como referencia en lugar de los propios stacks.
+- Corrección de las funciones de movimientos. Todas usaban los nodos como referencia en lugar de los propios stacks. Suele hacer entre 300 - 500 movimientos.
+
+Luis 15/05 =
+- Implementación del algoritmo medio basado en chunks: Consiste en asignar un índice a cada uno de los números según la posición que deberían tener estándo ordenados (índices de menor a mayor). Una vez asignados, se crea una ventana de índices cuyo tamaño viene dado por la raíz cuadrada de la cantidad total de números pasados. Posteriormente, se procede a pasar los números marcados a la pila B (en caso de ser necesario, se aplican rb para ordenar la pila de mayor a menor) y se repite el proceso sucesivamente, hasta lograr una lista ordenada en B de mayor a menor para pasarla ordenada de menor a mayor en A. La idea de este algoritmo es la misma que la del algoritmo simple con la diferencia de que aquí se hacen grupos. Solo funciona con la flag --meidum o si el disorder es mayor a 0,20 (20%) e inferior a 0,50 (50%).
+- Corrección de la norminette

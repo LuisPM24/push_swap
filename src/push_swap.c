@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 // crear una funcion que crea una pila vacia (a o b) e iniliza la pila
 // vacia a 0 = init
@@ -28,6 +29,7 @@ static t_stack	*init_stack(char name)
 	stack->flags = 0;
 	stack->bench = 0;
 	stack->disorder = 0;
+	stack->total_nbr = 0;
 	return (stack);
 }
 
@@ -76,16 +78,16 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	stack_a = init_stack('a');
-	stack_b = init_stack('b');
 	args = parse_args(stack_a, argc, argv);
 	if (!validate_args(args, stack_a))
 	{
 		fsin(argc, argv, args);
 		print_error(stack_a);
 	}
+	stack_b = init_stack('b');
 	start_algorithm(stack_a, stack_b);
 	fsin(argc, argv, args);
-	// print_stack(stack_a);
 	free_stack(stack_a);
+	free_stack(stack_b);
 	return (0);
 }

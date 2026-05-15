@@ -43,22 +43,22 @@ static void	manage_flag(t_stack *stack, char *str)
 	stack->flags++;
 }
 
+// The "While" block, reads and parse the flags.
+// The "if" block parse the arguments
 char	**parse_args(t_stack *stack, int argc, char **argv)
 {
 	int		count;
 
 	count = 1;
-	// lectura de flags
 	while (argv[count] && is_flag(argv[count]))
 	{
 		if (count > 2 || search_repetitions(argv, count)
 			|| (stack->flags != 0
-			&& is_strat(argv[count]) == is_strat(argv[count - 1])))
+				&& is_strat(argv[count]) == is_strat(argv[count - 1])))
 			print_error(stack);
 		manage_flag(stack, argv[count]);
 		count++;
 	}
-	// lectura de numeros
 	if (argc - count == 1)
 		return (ft_split(argv[count], ' '));
 	return (&argv[count]);
